@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { CreditCard, DollarSign, BarChart3 } from 'lucide-react';

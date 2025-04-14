@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { Settings } from 'lucide-react';
@@ -12,16 +11,18 @@ import { SidebarRelatoriosSection } from './SidebarRelatoriosSection';
 
 interface SidebarProps {
   open: boolean;
+  className?: string;
 }
 
-export function Sidebar({ open }: SidebarProps) {
+export function Sidebar({ open, className }: SidebarProps) {
   const location = useLocation();
   
   return (
     <aside
       className={cn(
         'fixed left-0 top-16 z-20 h-[calc(100vh-4rem)] bg-sidebar w-64 transition-all duration-300 ease-in-out transform',
-        open ? 'translate-x-0' : '-translate-x-44 md:translate-x-0 md:w-20'
+        open ? 'translate-x-0' : '-translate-x-44 md:translate-x-0 md:w-20',
+        className
       )}
     >
       <div className="flex flex-col h-full space-y-2 py-4 px-3">
