@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Bell, Menu, Search, Settings, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -9,14 +10,16 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { cn } from '@/lib/utils';
 
 interface TopBarProps {
   toggleSidebar: () => void;
+  className?: string;
 }
 
-export function TopBar({ toggleSidebar }: TopBarProps) {
+export function TopBar({ toggleSidebar, className }: TopBarProps) {
   return (
-    <header className="bg-white border-b border-gray-200 shadow-sm z-10">
+    <header className={cn("bg-white border-b border-gray-200 shadow-sm z-10", className)}>
       <div className="flex h-16 items-center px-4">
         <Button 
           variant="ghost" 
