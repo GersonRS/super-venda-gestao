@@ -4,18 +4,18 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 
 export function ProductList() {
   return (
-    <ScrollArea className="h-[calc(100vh-280px)]">
+    <ScrollArea className="h-[calc(100vh-380px)]">
       <Table>
-        <TableHeader className="bg-gray-100 sticky top-0">
-          <TableRow>
-            <TableHead className="w-16 py-2">Nº Item</TableHead>
-            <TableHead className="py-2">Código Descrição</TableHead>
-            <TableHead className="w-20 py-2">Qtd</TableHead>
-            <TableHead className="w-20 py-2">Vlr. Unit.</TableHead>
-            <TableHead className="w-20 py-2">Total</TableHead>
+        <TableHeader className="bg-blue-800/30 sticky top-0">
+          <TableRow className="hover:bg-transparent">
+            <TableHead className="w-16 py-3 text-white font-bold">Nº Item</TableHead>
+            <TableHead className="py-3 text-white font-bold">Código Descrição</TableHead>
+            <TableHead className="w-24 py-3 text-white font-bold">Qtd</TableHead>
+            <TableHead className="w-24 py-3 text-white font-bold">Vlr. Unit.</TableHead>
+            <TableHead className="w-24 py-3 text-white font-bold">Total</TableHead>
           </TableRow>
         </TableHeader>
-        <TableBody>
+        <TableBody className="text-white/90">
           <TableRow>
             <TableCell className="font-medium text-center">6</TableCell>
             <TableCell>7896011102856 BISC CARTOON FLOCOS 140G</TableCell>

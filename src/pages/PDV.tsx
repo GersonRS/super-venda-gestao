@@ -9,9 +9,9 @@ const PDV = () => {
   const [codeValue, setCodeValue] = useState('');
   
   return (
-    <div className="flex flex-col h-screen bg-blue-800 p-2 gap-2">
+    <div className="flex flex-col h-[calc(100vh-4rem)] gap-4 p-4 bg-gradient-to-br from-blue-900 to-blue-950">
       <PDVHeader />
-      <div className="flex flex-1 gap-2">
+      <div className="flex flex-1 gap-4">
         <PDVLeftColumn
           barcodeValue={barcodeValue}
           codeValue={codeValue}
