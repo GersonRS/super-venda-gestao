@@ -1,7 +1,8 @@
+
 import { Toaster } from "@/components/ui/toaster"
 import { Toaster as Sonner } from "@/components/ui/sonner"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import { AuthProvider } from "./contexts/AuthContext"
 import { MainLayout } from "./components/layout/MainLayout"
 import { Auth } from "./pages/Auth"
@@ -36,8 +37,14 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
+          {/* Rota pública */}
           <Route path="/auth" element={<Auth />} />
-          <Route path="/" element={<MainLayout><Dashboard /></MainLayout>} />
+          
+          {/* Rota padrão - redireciona para /dashboard */}
+          <Route path="/" element={<Navigate to="/dashboard" replace />} />
+
+          {/* Rotas protegidas */}
+          <Route path="/dashboard" element={<MainLayout><Dashboard /></MainLayout>} />
           <Route path="/produtos" element={<MainLayout><Products /></MainLayout>} />
           <Route path="/pdv" element={<MainLayout><PDV /></MainLayout>} />
           <Route path="/vendas" element={<MainLayout><Sales /></MainLayout>} />
@@ -45,8 +52,6 @@ const App = () => (
           <Route path="/relatorios" element={<MainLayout><Reports /></MainLayout>} />
           <Route path="/estoque" element={<MainLayout><Stock /></MainLayout>} />
           <Route path="/configuracoes" element={<MainLayout><Settings /></MainLayout>} />
-          
-          {/* Novas rotas */}
           <Route path="/ordens-servico" element={<MainLayout><OrdersService /></MainLayout>} />
           <Route path="/empresa" element={<MainLayout><Company /></MainLayout>} />
           <Route path="/fornecedores" element={<MainLayout><Suppliers /></MainLayout>} />
@@ -60,7 +65,8 @@ const App = () => (
           <Route path="/relatorios-produtos" element={<MainLayout><ProductsReports /></MainLayout>} />
           <Route path="/relatorios-clientes" element={<MainLayout><CustomersReports /></MainLayout>} />
           
-          <Route path="*" element={<NotFound />} />
+          {/* Página 404 - também protegida */}
+          <Route path="*" element={<MainLayout><NotFound /></MainLayout>} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
